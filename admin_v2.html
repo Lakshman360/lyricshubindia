@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secured Admin Portal | LyricsHubIndia</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Overlay for Auth */
+    #auth-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(18, 18, 18, 0.95);
+      z-index: 2000;
+      display: flex; justify-content: center; align-items: center;
+    }
+    .auth-box {
+      background: var(--bg-surface); padding: 3rem; border-radius: var(--radius-lg);
+      width: 90%; max-width: 400px; text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    textarea.form-control { resize: vertical; }
+  </style>
+</head>
+<body>
+  
+  <div id="auth-overlay">
+    <div class="auth-box animate">
+      <h2 style="margin-bottom: 0.5rem; color: var(--accent);">Admin Login</h2>
+      <p style="margin-bottom: 2rem; color: var(--text-muted); font-size: 0.9rem;">Restricted to official staff only.</p>
+      <form id="login-form">
+        <input type="email" id="login-email" class="form-control" placeholder="Enter your email address..." required style="margin-bottom: 1rem;">
+        <button type="submit" class="btn-primary" style="width: 100%;">Authenticate</button>
+      </form>
+      <p id="auth-error" style="color: #ff4c4c; display: none; margin-top: 1rem; font-size: 0.9rem;"></p>
+    </div>
+  </div>
+
+  <header class="glass">
+    <div class="container nav-wrapper">
+      <nav>
+        <a href="index.html" class="logo">LyricsHub<span style="color:#FFF">India</span></a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button id="logout-btn" class="btn-icon" style="padding: 0.4rem 1rem; font-size: 0.8rem; margin-left: 1rem;">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <h1 style="text-align: center; margin-bottom: 0.5rem;" class="animate">Content Management System</h1>
+    <p style="text-align: center; color:var(--text-muted); margin-bottom: 2rem;" class="animate">Add new or edit existing structured scalable song data dynamically.</p>
+    
+    <div class="glass animate" style="padding: 2.5rem; border-radius:var(--radius-lg); max-width: 850px; margin: 0 auto; margin-bottom: 2rem;">
+      <h3 style="margin-bottom: 1.5rem; font-weight:600; font-size:1.2rem; color:var(--text-main)"><i class="fas fa-edit" style="margin-right:8px; color:var(--accent)"></i> Edit an Existing Song</h3>
+      <div style="display:grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem;">
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label" for="edit_lang_select" style="color:var(--text-muted)">1. Filter by Language</label>
+          <select id="edit_lang_select" class="form-control" style="background:var(--bg-dark); color:var(--text-main); cursor:pointer;">
+            <option value="">-- All Languages --</option>
+            <!-- Populated via JS -->
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label" for="edit_year_select" style="color:var(--text-muted)">2. Filter by Year</label>
+          <select id="edit_year_select" class="form-control" style="background:var(--bg-dark); color:var(--text-main); cursor:pointer;" disabled>
+            <option value="">-- All Years --</option>
+            <!-- Populated via JS -->
+          </select>
+        </div>
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label" for="edit_song_select" style="color:var(--text-muted)">3. Select Song</label>
+          <select id="edit_song_select" class="form-control" style="background:var(--bg-dark); color:var(--text-main); cursor:pointer;">
+            <option value="">-- Add New Song --</option>
+            <!-- Populated via JS -->
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="glass animate" style="padding: 2.5rem; border-radius:var(--radius-lg); max-width: 850px; margin: 0 auto;">
+      <form id="admin-v2-form">
+        <input type="hidden" id="admin_edit_id" value="">
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="title">Song Title</label>
+            <input type="text" id="title" class="form-control" required placeholder="e.g. Naatu Naatu">
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="artist">Artist(s)</label>
+            <input type="text" id="artist" class="form-control" required placeholder="e.g. Rahul Sipligunj">
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="language">Language <small style="color:var(--accent); font-weight:normal">(Type any custom language into dropdown)</small></label>
+            <input type="text" id="language" list="lang-options" class="form-control" required placeholder="e.g. Telugu">
+            <datalist id="lang-options">
+              <option value="Telugu"></option>
+              <option value="Hindi"></option>
+              <option value="Tamil"></option>
+              <option value="English"></option>
+              <option value="Kannada"></option>
+              <option value="Malayalam"></option>
+              <option value="Bengali"></option>
+              <option value="Punjabi"></option>
+              <option value="Marathi"></option>
+              <option value="Bhojpuri"></option>
+              <option value="Gujarati"></option>
+            </datalist>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="year">Release Year</label>
+            <input type="number" id="year" class="form-control" required placeholder="2024" min="2000" max="2026">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 1.5rem;">
+          <label class="form-label" for="youtube_link">YouTube URL for Embed & Thumbnail</label>
+          <input type="url" id="youtube_link" class="form-control" required placeholder="https://www.youtube.com/watch?v=...">
+        </div>
+        
+        <hr style="border: 0; border-top: 1px dashed rgba(255,255,255,0.1); margin: 2rem 0;">
+
+        <div class="form-group" style="display:flex; justify-content:space-between; align-items:center;">
+          <label class="form-label" style="margin-bottom:0">Structured Content</label>
+          <button type="button" id="ai-auto-gen" class="btn-icon" style="font-size:0.8rem; padding: 0.4rem 1rem; border-color:var(--accent); color:var(--accent);">
+            <i class="fas fa-magic"></i> Auto-Generate with AI
+          </button>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="key_lyrics" style="font-weight: 500; font-size: 0.9rem; color:var(--text-muted)">Key Lyrics Excerpt (separate lines with newlines)</label>
+          <textarea id="key_lyrics" class="form-control" rows="3" required placeholder="Enter memorable safe excerpts here..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="meaning" style="font-weight: 500; font-size: 0.9rem; color:var(--text-muted)">Complete Song Meaning Summary</label>
+          <textarea id="meaning" class="form-control" rows="5" required placeholder="Explain the deeper essence and story behind the song..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="translation" style="font-weight: 500; font-size: 0.9rem; color:var(--text-muted)">English Translation of Key Lines (Optional, enter 'NA' if skipped)</label>
+          <textarea id="translation" class="form-control" rows="3" placeholder="Literal translation of the excerpt..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="highlights" style="font-weight: 500; font-size: 0.9rem; color:var(--text-muted)">Highlights / Trivia (separate points with newlines)</label>
+          <textarea id="highlights" class="form-control" rows="3" required placeholder="Fun facts or highlights..."></textarea>
+        </div>
+
+        <div class="form-group" style="margin-top: 2rem;">
+          <label class="form-label" for="full_lyrics" style="font-weight: 500; font-size: 0.9rem; color:var(--text-muted)">📝 Complete Official Lyrics</label>
+          <textarea id="full_lyrics" class="form-control" rows="12" placeholder="Paste the full song lyrics here... It will automatically preserve line breaks."></textarea>
+        </div>
+        
+        <div style="display: flex; gap: 2rem; margin: 2rem 0;">
+          <div class="form-group" style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0;">
+            <input type="checkbox" id="is_new" checked style="width:20px; height:20px; accent-color:var(--accent);">
+            <label for="is_new" style="cursor:pointer;">Mark as New Release</label>
+          </div>
+          <div class="form-group" style="display:flex; gap:0.5rem; align-items:center; margin-bottom:0;">
+            <input type="checkbox" id="trending" checked style="width:20px; height:20px; accent-color:var(--accent);">
+            <label for="trending" style="cursor:pointer;">Mark as Trending</label>
+          </div>
+        </div>
+
+        <div style="display: flex; gap: 1.5rem; margin-top: 2rem;">
+          <button type="submit" id="submit-btn" class="btn-primary" style="flex: 3; font-size: 1.1rem;">
+            <i class="fas fa-cloud-upload-alt" style="margin-right:8px;"></i> Publish to Platform
+          </button>
+          <button type="button" id="delete-btn" class="btn-secondary" style="flex: 1; background: #ff4c4c; color: white; border: none; display: none;">
+            <i class="fas fa-trash"></i> Delete
+          </button>
+        </div>
+        <p id="cms-status" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; color: var(--accent); font-weight: 500;"></p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="glass" style="margin-top:auto;">
+    <div class="container" style="text-align:center; padding: 2rem 0;">
+      <p>© 2026 LyricsHubIndia. Protected Content Management System.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

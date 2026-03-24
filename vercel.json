@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/lyrics/:match*", "destination": "/song.html?path=:match*" },
+    { "source": "/official0", "destination": "/admin_v2.html" }
+  ],
+  "cleanUrls": true,
+  "trailingSlash": false
+}

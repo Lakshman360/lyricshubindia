@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song Lyrics Meaning | LyricsHubIndia</title>
+  <meta name="description" content="Read song meaning and lyrics summary at LyricsHubIndia.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- AdSense Placeholder Top -->
+  <div class="container">
+    <div class="ad-slot">Google AdSense Top Banner Placeholder</div>
+  </div>
+
+  <header class="glass">
+    <div class="container nav-wrapper">
+      <nav>
+        <a href="index.html" class="logo">LyricsHub<span style="color:#FFF">India</span></a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div id="song-details-container" class="song-hero animate">
+      <div class="video-container">
+        <iframe id="video-frame" src="" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="song-details" id="song-details">
+        <span class="badge badge-new" id="song-badge" style="position:static; display:none; margin-bottom:1.5rem;">New Release</span>
+        <h1 id="song-title">Loading...</h1>
+        <p class="artist" id="song-artist">Please wait while we load the content.</p>
+        <p class="song-meta" style="margin-bottom:2rem; justify-content: flex-start; border:none; padding:0;">
+          <span class="badge badge-lang" id="song-lang">...</span>
+        </p>
+
+        <div class="action-bar">
+          <button class="btn-icon" id="copy-btn">
+            <i class="fas fa-copy"></i> Copy Content
+          </button>
+          <a class="btn-icon" id="share-wa" target="_blank" aria-label="Share on WhatsApp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a class="btn-icon" id="share-tw" target="_blank" aria-label="Share on Twitter">
+            <i class="fab fa-twitter"></i> Twitter
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AdSense Placeholder Content -->
+    <div class="ad-slot animate" style="animation-delay: 0.2s; opacity:0;">Google AdSense Between Content Placeholder</div>
+
+    <div class="content-section animate" style="animation-delay: 0.3s; opacity:0; margin-top: 2.5rem;">
+      
+      <div id="key-lyrics-section" style="margin-bottom: 2rem; display:none;">
+        <h2 style="margin-bottom: 1rem; font-weight: 700; color:var(--accent); font-size:1.5rem;"><i class="fas fa-quote-left" style="margin-right:10px;"></i> Key Lyrics Excerpt</h2>
+        <div class="lyrics-content glass" id="song-key-lyrics" style="font-style: italic; font-weight: 500; border-left: 4px solid var(--accent); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 1.5rem 2rem;"></div>
+      </div>
+
+      <div id="meaning-section" style="margin-bottom: 2rem;">
+        <h2 style="margin-bottom: 1rem; font-weight: 700; font-size:1.5rem;"><i class="fas fa-book-open" style="margin-right:10px; color:var(--text-muted)"></i> Meaning & Essence</h2>
+        <div class="lyrics-content" id="song-lyrics">Loading the meaning and essence of the song...</div>
+      </div>
+
+      <div id="translation-section" style="margin-bottom: 2rem; display:none;">
+        <h2 style="margin-bottom: 1rem; font-weight: 700; font-size:1.5rem;"><i class="fas fa-language" style="margin-right:10px; color:var(--text-muted)"></i> English Translation</h2>
+        <div class="lyrics-content" id="song-translation" style="background: rgba(255, 206, 0, 0.05); border: 1px solid rgba(255, 206, 0, 0.2);"></div>
+      </div>
+
+      <div id="highlights-section" style="margin-bottom: 2rem; display:none;">
+        <h2 style="margin-bottom: 1rem; font-weight: 700; font-size:1.5rem;"><i class="fas fa-star" style="margin-right:10px; color:var(--accent)"></i> Trivia & Highlights</h2>
+        <div class="glass" style="padding: 2rem; border-radius: var(--radius-md);">
+          <ul id="song-highlights" style="list-style-type: none; line-height:1.8; font-size:1.05rem;">
+            <!-- Rendered via JS -->
+          </ul>
+        </div>
+      </div>
+
+      <div id="full-lyrics-section" class="animate" style="animation-delay: 0.4s; margin-top: 3rem; margin-bottom: 2rem; display:none;">
+        <h2 style="margin-bottom: 1.5rem; font-weight: 700; font-size:1.5rem;"><i class="fas fa-align-left" style="margin-right:10px; color:var(--text-muted)"></i> Full Lyrics</h2>
+        <div class="lyrics-content glass" id="song-full-lyrics" style="padding: 2.5rem; border-radius: var(--radius-lg); font-size: 1.1rem; line-height: 2.2; color: var(--text-main); font-weight: 400; font-style: normal; white-space: pre-wrap;"></div>
+      </div>
+
+    </div>
+
+    <div class="related-section animate" style="animation-delay: 0.5s; opacity:0; margin-top: 4rem;">
+      <h2 style="margin-bottom: 2rem; font-weight: 700;">More Similar Songs</h2>
+      <div class="song-grid" id="related-songs">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="glass">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>LyricsHubIndia</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem">
+            High-quality AI generated song summaries and meanings.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <p>© 2026 LyricsHubIndia. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
