@@ -1,0 +1,52 @@
+{
+  "songs": [
+    {
+      "id": "naatu-naatu-telugu",
+      "title": "Naatu Naatu",
+      "artist": "Rahul Sipligunj, Kaala Bhairava",
+      "language": "Telugu",
+      "youtube_link": "https://www.youtube.com/embed/OsU0CGWaLXw",
+      "thumbnail": "https://img.youtube.com/vi/OsU0CGWaLXw/maxresdefault.jpg",
+      "lyrics_or_summary": "Naatu Naatu is a high-energy, Oscar-winning Telugu song from the movie RRR. The song celebrates raw, rustic, and energetic dance, comparing it to various vibrant, earthy elements. The singers enthusiastically invite others to join in their vigorous 'Naatu' (local/rustic) style of dancing, showing off incredible stamina and coordination. It's a powerful expression of joy and unyielding spirit.",
+      "created_date": "2026-03-24",
+      "is_new": true,
+      "trending": true
+    },
+    {
+      "id": "chaleya-hindi",
+      "title": "Chaleya",
+      "artist": "Arijit Singh, Shilpa Rao",
+      "language": "Hindi",
+      "youtube_link": "https://www.youtube.com/embed/VAdGW7QDJiU",
+      "thumbnail": "https://img.youtube.com/vi/VAdGW7QDJiU/maxresdefault.jpg",
+      "lyrics_or_summary": "Chaleya is a romantic Hindi song from the movie Jawan. It beautifully describes the feeling of being deeply in love, where the protagonist feels their heart is uncontrollably drawn towards their beloved. The lyrics convey the magic and transformative power of love, making every moment feel enchanting and dreamlike.",
+      "created_date": "2026-03-20",
+      "is_new": false,
+      "trending": true
+    },
+    {
+      "id": "leo-badass-tamil",
+      "title": "Badass",
+      "artist": "Anirudh Ravichander",
+      "language": "Tamil",
+      "youtube_link": "https://www.youtube.com/embed/IktZNVqO1EY",
+      "thumbnail": "https://img.youtube.com/vi/IktZNVqO1EY/maxresdefault.jpg",
+      "lyrics_or_summary": "Badass is an electrifying track from the Tamil movie Leo. It's an anthem that highlights the fierce, unstoppable, and fearless nature of the protagonist. The lyrics are packed with punchy lines that elevate the hero's persona, warning enemies of his uncompromising attitude and devastating power.",
+      "created_date": "2026-03-22",
+      "is_new": true,
+      "trending": false
+    },
+    {
+      "id": "starboy-english",
+      "title": "Starboy",
+      "artist": "The Weeknd ft. Daft Punk",
+      "language": "English",
+      "youtube_link": "https://www.youtube.com/embed/34Na4j8HLjc",
+      "thumbnail": "https://img.youtube.com/vi/34Na4j8HLjc/maxresdefault.jpg",
+      "lyrics_or_summary": "Starboy is a global hit by The Weeknd. The song delves into his massive success, extravagant lifestyle, and the darker, more isolating aspects of fame. He reflects on his transformation into a 'Starboy' (a heavily successful, somewhat arrogant and detached figure), acknowledging both the luxury and the emotional toll of his celebrity status.",
+      "created_date": "2026-03-10",
+      "is_new": false,
+      "trending": true
+    }
+  ]
+}
