@@ -1,7 +1,0 @@
-speech_recognition
-pyttsx3
-pyautogui
-requests
-openai
-python-dotenv
-pyowm
