@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song Lyrics Meaning | LyricsVerseHub</title>
+  <meta name="description" content="Read song meaning and lyrics summary at LyricsVerseHub.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-mesh">
+  <header class="glass">
+    <div class="container nav-wrapper">
+      <nav>
+        <a href="index.html" class="logo">LyricsVerseHub</a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container section">
+    <div id="song-details-container" class="song-hero animate" style="flex-direction: column; gap: 2rem;">
+      <div class="video-container">
+        <iframe id="video-frame" src="" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <!-- Tiered Audio Player (Strictly Below Video) -->
+      <div id="audio-section" class="audio-player-container animate" style="display: none; margin-bottom: 2rem; width: 100%;">
+        <div class="audio-label">
+          <i class="fas fa-play-circle"></i> <span>Listen to Audio Version</span>
+        </div>
+        <div class="audio-embed-wrapper">
+          <iframe id="audio-frame" allow="encrypted-media"></iframe>
+        </div>
+      </div>
+      
+      <div class="song-details">
+        <span id="song-badge" class="badge badge-new" style="display:none; position:static; margin-bottom:1rem">New Release</span>
+        <h1 id="song-title">Loading...</h1>
+        <p id="song-artist" class="artist"></p>
+        <div class="action-bar">
+          <span id="song-lang-badge" class="badge badge-lang">-</span>
+          <span id="song-year" style="font-weight:600; font-size:0.9rem; color:var(--text-main)">-</span>
+          <div style="margin-left:auto; display:flex; gap:10px;">
+            <button class="btn-icon"><i class="fas fa-share-alt"></i> Share</button>
+            <button class="btn-icon"><i class="fas fa-bookmark"></i> Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad Slot Placeholder -->
+    <div class="ad-slot" style="margin: 2rem 0;">Google AdSense Sidebar Placeholder</div>
+
+    <div class="details-grid">
+      <div class="main-content glass animate" style="animation-delay: 0.1s">
+        <section class="content-block">
+          <h2><i class="fas fa-quote-left" style="color:var(--accent); font-size:0.8em; margin-right:10px"></i> Key Lyrics Excerpt</h2>
+          <ul id="key-lyrics-list" class="lyrics-excerpt">
+            <!-- Injected by JS -->
+          </ul>
+        </section>
+
+        <section class="content-block">
+          <h2><i class="fas fa-brain" style="color:var(--accent); font-size:0.8em; margin-right:10px"></i> Meaning & Essence</h2>
+          <p id="song-meaning" class="meaning-text">
+            <!-- Injected by JS -->
+          </p>
+        </section>
+
+        <section class="content-block">
+          <h2><i class="fas fa-language" style="color:var(--accent); font-size:0.8em; margin-right:10px"></i> English Translation</h2>
+          <div id="song-translation" class="translation-block">
+            <!-- Injected by JS -->
+          </div>
+        </section>
+        
+        <!-- NEW: Full Lyrics Section -->
+        <section class="content-block">
+          <h2><i class="fas fa-align-left" style="color:var(--accent); font-size:0.8em; margin-right:10px"></i> Full Lyrics</h2>
+          <div class="full-lyrics-container">
+            <pre id="full-lyrics-text" style="white-space: pre-wrap; font-family: inherit; line-height: 1.8; color: var(--text-muted);"></pre>
+          </div>
+        </section>
+      </div>
+
+      <aside class="sidebar slide-in">
+        <div class="glass side-card">
+          <h3><i class="fas fa-lightbulb" style="color:var(--accent)"></i> Did You Know?</h3>
+          <ul id="highlights-list" class="highlights-list">
+            <!-- Injected by JS -->
+          </ul>
+        </div>
+
+        <div class="glass side-card" style="margin-top: 1.5rem">
+          <h3><i class="fas fa-music" style="color:var(--accent)"></i> Related Meaning</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted)">Currently analyzing more tracks. Check back soon for deeper insights into trending global hits.</p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="glass" style="margin-top: 5rem;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>LyricsVerseHub</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem">
+            High-quality AI generated song summaries and meanings.
+          </p>
+        </div>
+        <div class="footer-col">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <p>© 2026 LyricsVerseHub. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

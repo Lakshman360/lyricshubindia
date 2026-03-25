@@ -1,0 +1,22 @@
+{
+  "songs": [
+    {
+      "id": "naatu-naatu-telugu",
+      "title": "Naatu Naatu",
+      "artist": "Rahul Sipligunj, Kaala Bhairava",
+      "language": "Telugu",
+      "year": 2021,
+      "youtube_link": "https://www.youtube.com/embed/OsU0CGWaLXw",
+      "audio_link": "https://open.spotify.com/embed/track/1I9l5F9oK8iG37v0yW0L",
+      "thumbnail_url": "https://m.media-amazon.com/images/M/MV5BMmMwNjk1MjEtNDViOC00YTliLTlmOTAtNjFhMjBkNDVlZGMxXkEyXkFqcGdeQXVyMTA3MDk2NDg2._V1_.jpg",
+      "key_lyrics": ["Polamgattu dummu loppi potla gittha dukinattu", "Eerukammalona siru satta esinattu"],
+      "meaning": "High-energy Oscar winning track from RRR.",
+      "translation": "NA",
+      "highlights": ["Won the Academy Award for Best Original Song"],
+      "full_lyrics": "Polamgattu dummu loppi potla gittha dukinattu...",
+      "created_date": "2026-03-24",
+      "is_new": true,
+      "trending": true
+    }
+  ]
+}

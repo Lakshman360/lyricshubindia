@@ -1,0 +1,13 @@
+{
+  "rewrite": [
+    {
+      "source": "/official0",
+      "destination": "/admin_v2.html"
+    },
+    {
+      "source": "/lyrics/:id",
+      "destination": "/song.html?id=:id"
+    }
+  ],
+  "cleanUrls": true
+}

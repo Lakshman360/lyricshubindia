@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LyricsVerseHub | Multi-language Song Lyrics & Meanings</title>
+  <meta name="description"
+    content="Search and find AI-powered lyrics summaries and meanings for trending Telugu, Hindi, Tamil, and English songs. Watch videos and understand the essence.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-mesh">
+  <header class="glass">
+    <div class="container nav-wrapper">
+      <nav>
+        <a href="index.html" class="logo">LyricsVerseHub</a>
+        <div class="nav-links">
+          <a href="index.html" class="active">Home</a>
+          <a href="about.html">About</a>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero-section section animate">
+      <div class="hero-content">
+        <h1>Understand the <span style="color: var(--accent)">Essence</span> of Every Song</h1>
+        <p>Expertly curated AI-powered lyrics meanings, summaries, and translations across 7+ languages.</p>
+
+        <div class="search-container glass">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" id="search-input" placeholder="Search by song name or artist...">
+          <button id="search-btn" class="btn">Discover Meaning</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ad Slot Placeholder -->
+    <div class="ad-slot">Google AdSense Banner Placeholder</div>
+
+    <!-- Main Content -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title">Trending Meanings</h2>
+        <div class="categories">
+          <!-- Dynamically generated pills -->
+        </div>
+      </div>
+
+      <div id="song-grid" class="song-grid">
+        <!-- Song Cards injected by JS -->
+        <div class="loader">Loading latest meanings...</div>
+      </div>
+    </section>
+
+    <!-- App Features / Stats Mock -->
+    <section class="section features-grid" style="margin-top: 2rem;">
+      <div class="feature-card glass animate">
+        <i class="fas fa-shield-alt" style="font-size: 2rem; color: var(--accent); margin-bottom: 1rem;"></i>
+        <h3>Copyright-Safe</h3>
+        <p>We focus on creative interpretations and summaries rather than just plain lyrics reproduction.</p>
+      </div>
+      <div class="feature-card glass animate" style="animation-delay: 0.1s">
+        <i class="fas fa-globe-asia" style="font-size: 2rem; color: var(--accent); margin-bottom: 1rem;"></i>
+        <h3>Multilingual</h3>
+        <p>Meanings available in Telugu, Hindi, Tamil, English, Kannada, Malayalam, and Bengali.</p>
+      </div>
+      <div class="feature-card glass animate" style="animation-delay: 0.2s">
+        <i class="fas fa-bolt" style="font-size: 2rem; color: var(--accent); margin-bottom: 1rem;"></i>
+        <h3>AI-Powered</h3>
+        <p>Instant insights into the metaphors and cultural context behind every global hit.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="glass" style="margin-top: 5rem;">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>LyricsVerseHub</h3>
+          <p style="color:var(--text-muted); font-size:0.9rem">
+            High-quality AI generated song summaries and meanings across top Indian languages and global hits.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms & Conditions</a>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <p>© 2026 LyricsVerseHub. All Rights Reserved.</p>
+        <p style="margin-top: 0.5rem">All displayed lyrics are provided digitally for educational, review, and personal
+          interpretation purposes.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

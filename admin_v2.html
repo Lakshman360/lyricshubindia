@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secured Admin Portal | LyricsVerseHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin-container { padding: 5rem 0; }
+    .admin-card { padding: 3rem; max-width: 900px; margin: 0 auto; }
+    .auth-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+    .auth-card { width: 400px; text-align: center; }
+    .form-group { margin-bottom: 1.5rem; text-align: left; }
+    input, textarea, select { width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; font-family: inherit; }
+    label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; color: var(--accent); }
+    .cms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .full-width { grid-column: span 2; }
+    .admin-actions { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; margin-top: 2rem; display: flex; gap: 1rem; }
+  </style>
+</head>
+
+<body class="bg-mesh" style="min-height: 100vh; display: flex; flex-direction: column;">
+  <div id="auth-overlay" class="auth-overlay">
+    <div class="glass auth-card animate">
+      <i class="fas fa-lock" style="font-size: 3rem; color: var(--accent); margin-bottom: 1.5rem;"></i>
+      <h2 style="margin-bottom: 2rem;">Authorized Personnel Only</h2>
+      <form id="login-form">
+        <div class="form-group">
+          <input type="email" id="login-email" placeholder="Enter Admin Email" required>
+        </div>
+        <button type="submit" class="btn" style="width: 100%;">Authenticate</button>
+        <p id="auth-error" style="color: #ff4b4b; display: none; margin-top: 1rem; font-size: 0.85rem;">Invalid deployment key.</p>
+      </form>
+    </div>
+  </div>
+
+  <header class="glass">
+    <div class="container nav-wrapper">
+      <nav>
+        <a href="index.html" class="logo">LyricsVerseHub</a>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container admin-container">
+    <div class="glass admin-card animate">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2><i class="fas fa-database"></i> CMS Dashboard</h2>
+        <button id="ai-auto-gen" class="btn" style="background: linear-gradient(to right, #6366f1, #a855f7);"><i class="fas fa-magic"></i> Auto-Generate with AI</button>
+      </div>
+
+      <!-- Stage 1-2-3 Cascading Selector -->
+      <div class="glass" style="margin-bottom: 2rem; padding: 1.5rem; border: 1px solid var(--accent);">
+        <h4 style="margin-bottom: 1rem;"><i class="fas fa-edit"></i> Quick Edit Existing Song</h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+          <select id="edit_lang_select"><option value="">Select Language</option></select>
+          <select id="edit_year_select"><option value="">Select Year</option></select>
+          <select id="edit_song_select"><option value="">Select Song</option></select>
+        </div>
+      </div>
+
+      <form id="admin-v2-form">
+        <input type="hidden" id="admin_edit_id">
+        <div class="cms-grid">
+          <div class="form-group">
+            <label for="title">Song Title</label>
+            <input type="text" id="title" placeholder="e.g. Srivalli" required>
+          </div>
+          <div class="form-group">
+            <label for="artist">Artist Name</label>
+            <input type="text" id="artist" placeholder="e.g. Javed Ali" required>
+          </div>
+          <div class="form-group">
+            <label for="language">Language</label>
+            <select id="language" required>
+              <option value="Telugu">Telugu</option>
+              <option value="Hindi">Hindi</option>
+              <option value="Tamil">Tamil</option>
+              <option value="English">English</option>
+              <option value="Kannada">Kannada</option>
+              <option value="Malayalam">Malayalam</option>
+              <option value="Bengali">Bengali</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="year">Release Year</label>
+            <input type="number" id="year" placeholder="e.g. 2021" required>
+          </div>
+          <div class="form-group">
+            <label for="youtube_link">Video URL (YouTube)</label>
+            <input type="url" id="youtube_link" placeholder="https://www.youtube.com/watch?v=..." required>
+          </div>
+          <div class="form-group">
+            <label for="audio_link">Spotify/Audio URL (Optional)</label>
+            <input type="url" id="audio_link" placeholder="Spotify track URL or Iframe source">
+          </div>
+          
+          <div class="form-group full-width">
+            <label for="thumbnail_url">Custom HD Poster URL (Optional - Fallbacks to YT High-Res)</label>
+            <input type="url" id="thumbnail_url" placeholder="Direct link to album art/poster">
+          </div>
+
+          <div class="form-group full-width">
+            <label for="key_lyrics">Key Lyrics (One per line)</label>
+            <textarea id="key_lyrics" rows="3" placeholder="Paste memorable lines here..."></textarea>
+          </div>
+          <div class="form-group full-width">
+            <label for="meaning">Central Meaning & Essence</label>
+            <textarea id="meaning" rows="4" placeholder="Briefly describe the theme and story..."></textarea>
+          </div>
+          <div class="form-group full-width">
+            <label for="translation">English Translation</label>
+            <textarea id="translation" rows="3" placeholder="Provide translation for audience..."></textarea>
+          </div>
+          <div class="form-group full-width">
+            <label for="highlights">Trivia & Highlights (One per line)</label>
+            <textarea id="highlights" rows="3" placeholder="Cultural impact, awards, facts..."></textarea>
+          </div>
+          
+          <div class="form-group full-width">
+            <label for="full_lyrics">Complete Lyrics (Full Track)</label>
+            <textarea id="full_lyrics" rows="10" placeholder="Paste the entire song's lyrics here..."></textarea>
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="is_new" style="width: auto;">
+            <label for="is_new" style="margin: 0;">Mark as New Release</label>
+          </div>
+          <div class="form-group" style="display: flex; align-items: center; gap: 10px;">
+            <input type="checkbox" id="trending" style="width: auto;">
+            <label for="trending" style="margin: 0;">Add to Trending</label>
+          </div>
+        </div>
+
+        <div class="admin-actions">
+          <button type="submit" class="btn" style="flex: 2;"><i class="fas fa-save"></i> Save Song Entry</button>
+          <button type="button" id="delete-btn" class="btn" style="background: #ff4b4b; flex: 1;"><i class="fas fa-trash"></i> Delete</button>
+          <button type="reset" class="btn" style="background: #555; flex: 1;" onclick="window._refreshAdminDropdowns()">Reset Form</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="glass" style="margin-top:auto;">
+    <div class="container" style="text-align:center; padding: 2rem 0;">
+      <p>© 2026 LyricsVerseHub. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
