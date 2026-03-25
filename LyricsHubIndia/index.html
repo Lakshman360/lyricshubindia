@@ -1,15 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LyricsHubIndia | Multi-language Song Lyrics & Meanings</title>
-  <meta name="description" content="Search and find AI-powered lyrics summaries and meanings for trending Telugu, Hindi, Tamil, and English songs. Watch videos and understand the essence.">
+  <meta name="description"
+    content="Search and find AI-powered lyrics summaries and meanings for trending Telugu, Hindi, Tamil, and English songs. Watch videos and understand the essence.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+  <script type="module">
+    // Import Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    // Your config (PASTE HERE)
+    const firebaseConfig = {
+      apiKey: "YOUR_KEY",
+      authDomain: "YOUR_DOMAIN",
+      projectId: "YOUR_ID",
+      storageBucket: "YOUR_BUCKET",
+      messagingSenderId: "YOUR_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Fetch songs
+    async function loadSongs() {
+      const querySnapshot = await getDocs(collection(db, "songs"));
+      const container = document.getElementById("songs");
+
+      querySnapshot.forEach((doc) => {
+        const data = doc.data();
+
+        container.innerHTML += `
+        <div style="border:1px solid #ccc; padding:10px; margin:10px;">
+          <h2>${data.title}</h2>
+          <p>${data.artist}</p>
+          <p>${data.language}</p>
+          <pre>${data.lyrics}</pre>
+        </div>
+      `;
+      });
+    }
+
+    loadSongs();
+  </script>
 </head>
+
 <body>
+  <div id="songs"></div>
 
   <!-- AdSense Placeholder Top -->
   <div class="container">
@@ -64,7 +111,7 @@
       <div class="section-header animate" style="animation-delay: 0.3s; opacity: 0;">
         <h2 class="section-title">Latest & Trending Songs</h2>
       </div>
-      
+
       <div id="song-grid" class="song-grid">
         <!-- Rendered via JS -->
       </div>
@@ -98,11 +145,13 @@
       </div>
       <div class="disclaimer">
         <p>© 2026 LyricsHubIndia. All Rights Reserved.</p>
-        <p style="margin-top: 0.5rem">All displayed lyrics are provided digitally for educational, review, and personal interpretation purposes.</p>
+        <p style="margin-top: 0.5rem">All displayed lyrics are provided digitally for educational, review, and personal
+          interpretation purposes.</p>
       </div>
     </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
+
 </html>
